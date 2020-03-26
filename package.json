@@ -1,0 +1,36 @@
+{
+  "name": "meshelate",
+  "version": "0.0.0",
+  "description": "Tesselate a mesh while maintaining watertight seems for various shapes using the CPU",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint+build+test": "yarn run lint && yarn run build && yarn run test",
+    "lint": "echo linting... && standard ./src/**/*.js && echo 'successfully linted'",
+    "build": "echo building... && babel src/ -d lib/ && echo 'successfully built'",
+    "prepublish": "yarn run build",
+    "test": "echo running server tests... && standard && tape test/**/*.js | tap-summary && echo 'successfully completed tests'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CraigglesO/meshelate.git"
+  },
+  "author": "Craig OConnor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CraigglesO/meshelate/issues"
+  },
+  "homepage": "https://github.com/CraigglesO/meshelate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "standard": "*",
+    "tap-summary": "^4.0.0",
+    "tape": "^4.13.2"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": []
+  }
+}
