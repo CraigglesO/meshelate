@@ -1,6 +1,6 @@
 {
   "name": "meshelate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Tesselate a mesh while maintaining watertight seems for various shapes using the CPU",
   "main": "lib/index.js",
   "scripts": {
