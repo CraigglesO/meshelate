@@ -2701,3 +2701,8 @@ xtend@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
+
+zero-clip@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/zero-clip/-/zero-clip-0.0.6.tgz#1d66c594b53dc3bb798be032e6bc69306f63a7b5"
+  integrity sha512-HAHNmEFj1mPLUKXk7zg/XQ1S4Im+PYIA8KvAne7jbhYVW4V2WTTkL9jkf7oTjg7Lzn4i/MoIOLN1Yt+Zlp1zXQ==

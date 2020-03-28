@@ -7,30 +7,38 @@ function meshelate (vertices, srcIndices, maxLength = Infinity, dim = 2) {
   const il = srcIndices.length
   const indices = []
 
-  let a, b, c, bI, vl
+  let a, b, c, bI, cI, vl, split
   let i = 0
   while (i < il) {
     const stack = [srcIndices[i++], srcIndices[i++], srcIndices[i++]]
 
     while (stack.length) {
       // we have to compare 3 lines
-      for (let i = 0; i < 3; i++) {
+      split = false
+      for (let j = 0; j < 3; j++) {
         // grab the first three from the stack
-        a = stack[i]
-        bI = (i + 1) % 3
+        a = stack[j]
+        bI = (j + 1) % 3
         b = stack[bI]
         // if line too long, split and start over
         if (isTooLong(a, b, vertices, maxLength, dim)) {
-          c = stack[(i + 2) % 3]
-          for (let i = 0; i < dim; i++) vertices.push((vertices[b * dim + i] + vertices[a * dim + i]) / 2)
+          cI = (j + 2) % 3
+          c = stack[cI]
+          for (let k = 0; k < dim; k++) vertices.push((vertices[b * dim + k] + vertices[a * dim + k]) / 2)
           // split
           vl = (vertices.length - 2) / dim
-          stack[bI] = vl
-          stack.push(vl, b, c)
-          // start over
-          continue
+          // during split, we also rotate all by 1, so if the result was a-b-c, we would do c-a-b
+          // still the same triangle, still same rotation, but this ensures we find the longest line
+          // roughly 50% of the time
+          stack[j] = c
+          stack[bI] = a
+          stack[cI] = vl
+          stack.push(c, vl, b)
+          split = true
+          break
         }
       }
+      if (split) continue
 
       // store the current triangle
       indices.push(stack.shift(), stack.shift(), stack.shift())
