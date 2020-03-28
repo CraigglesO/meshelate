@@ -11,6 +11,31 @@
 
 **Tesselate a mesh while maintaining watertight seems for various shapes using the CPU**
 
+* Retains order (for even-odd or non-zero based gpu draws)
+* reduce the max length of each triangle
+
+## Install
+
+```sh
+# yarn
+yarn add meshelate
+# npm
+npm install --save meshelate
+```
+
+## Use
+
+```js
+// ES6
+import { meshelate } from 'meshelate'
+// ES5
+const { meshelate } = require('meshelate')
+
+const { vertices, indices } = meshelate(data.vertices, data.indices, 4096 / 32)
+console.log('vertices', vertices)
+console.log('indices', indices)
+```
+
 ---
 
 ## ISC License (ISC)
